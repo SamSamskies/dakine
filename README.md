@@ -1,6 +1,6 @@
-# Dakine
+# Dakine v. 0.0.1
 
-TODO: Write a gem description
+Translates English into Hawaiian Pidgin English. The first version of this gem currently replaces the word 'the' with 'da' and all nouns with 'da kine'.
 
 ## Installation
 
@@ -18,7 +18,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+Dakine.translate "Alice chased the big fat cat. Kimo went to the mall."
+=> "da kine chased da big fat da kine. da kine went to da da kine."
+```
 
 ## Contributing
 
