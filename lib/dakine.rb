@@ -1,4 +1,5 @@
 require "dakine/version"
+require "engtagger"
 
 module Dakine
   extend self
