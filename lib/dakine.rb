@@ -35,6 +35,6 @@ module Dakine
   end
 
   def remove_whitespace_before_punctuation(text)
-    text.gsub /\s+([.,;?])/, '\1'
+    text.gsub /\s+([.,;?!])/, '\1'
   end
 end
