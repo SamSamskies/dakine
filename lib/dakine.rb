@@ -21,8 +21,8 @@ module Dakine
   end
 
   def transform_text(text)
-    text.gsub!(/a lot of /i, "alotof ")
-    text.gsub!(/lots of /i, "lotsof ")
+    text = text.gsub(/a lot of /i, "alotof ")
+    text = text.gsub(/lots of /i, "lotsof ")
   end
 
   def tag_words(text)
