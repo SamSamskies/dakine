@@ -9,7 +9,7 @@ module Dakine
 
     translated_text = tagged_word_pairs.map do |tw_pair|
       if is_noun?(tw_pair[:tag])
-        replace_noun
+        replace_noun(tw_pair[:word])
       elsif tw_pair[:word] == 'the'
         'da'
       else
@@ -33,8 +33,12 @@ module Dakine
                    tag == "NNS"
   end
 
-  def replace_noun
-    'da kine'
+  def replace_noun(word)
+    exceptions = {
+      "plenty" =>  "choke"
+    }
+
+    exceptions[word] || 'da kine'
   end
 
   def remove_whitespace_before_punctuation(text)
