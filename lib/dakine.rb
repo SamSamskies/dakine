@@ -5,7 +5,7 @@ module Dakine
   extend self
 
   def translate(text)
-    tagged_word_pairs = tag_words(text)
+    tagged_word_pairs = tag_words(transform_text text)
 
     translated_text = tagged_word_pairs.map do |tw_pair|
       if is_noun?(tw_pair[:tag])
@@ -18,6 +18,11 @@ module Dakine
     end.join(' ')
 
     remove_whitespace_before_punctuation translated_text
+  end
+
+  def transform_text(text)
+    text.gsub!(/a lot of /i, "alotof ")
+    text.gsub!(/lots of /i, "lotsof ")
   end
 
   def tag_words(text)
@@ -35,7 +40,9 @@ module Dakine
 
   def replace_noun(word)
     exceptions = {
-      "plenty" =>  "choke"
+      "plenty" =>  "choke",
+      "alotof" => "choke",
+      "lotsof" => "choke"
     }
 
     exceptions[word] || 'da kine'
